@@ -1,0 +1,46 @@
+{% extends "usuarios/base.html" %}
+
+{% block title %}Mi perfil{% endblock %}
+
+{% block content %}
+<div class="max-w-lg mx-auto bg-white shadow rounded-xl p-6">
+  <!-- Título centrado -->
+  <h2 class="text-2xl font-bold text-center mb-6">👤 Mi Perfil</h2>
+
+  <!-- Datos -->
+  <ul class="space-y-2">
+    <li><strong>Usuario :</strong> </li>
+    <li><strong>Contraseña :</strong> *************</li>
+    <li><strong>Email :</strong> </li>
+    <li><strong>Rol :</strong> </li>
+    <li><strong>Nombre :</strong> </li>
+    <li><strong>A Paterno :</strong> </li>
+    <li><strong>A Materno :</strong> </li>
+    <li><strong>CI :</strong> </li>
+    <li><strong>Celular :</strong> </li>
+    <li><strong>Estado :</strong> ✅ Activo{% else %}❌ Inactivo</li>
+  </ul>
+
+  <!-- Botones -->
+  <div class="mt-6 flex justify-end space-x-3">
+    <button id="Btnperfilpassword2" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+      Cambiar Contraseña
+    </button>
+    
+    <a href="{% url 'usuarios:dashboard_usuario' %}" class="px-4 py-2 bg-gray-400 rounded-md hover:bg-gray-300">⬅ Volver</a>
+    <a href="{% url 'login:logout' %}" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">Cerrar sesión</a>
+  </div>
+  {% if messages %}
+  <div class="mb-4">
+    {% for message in messages %}
+      <div class="p-2 rounded-md {% if message.tags == 'error' %}bg-red-100 text-red-700{% elif message.tags == 'success' %}bg-green-100 text-green-700{% endif %}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+</div>
+
+<!-- Modal separado -->
+{% include "usuarios/perfil_modal_password_u.html" %}
+{% endblock %}

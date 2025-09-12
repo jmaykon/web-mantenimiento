@@ -1,0 +1,46 @@
+{% load static %}
+<header class="relative flex items-center bg-gray-400 border-b px-4 py-2 shadow-sm">
+  <div>
+    <a href="{% url 'usuarios:dashboard_usuario' %}" class="w-8 h-8 rounded-full object-cover mr-2">
+      <h1 class="text-xl font-bold text-center cursor-pointer font-extrabold">
+        Sistema de Mantenimiento
+      </h1>
+    </a>
+  </div>
+  <div> <img src="{% static 'images/pc2.png' %}" class="w-40 h-20 rounded-full object-cover mr-2">
+  </div>
+  <!-- Texto centrado -->
+  <h2 class="absolute left-1/2 transform -translate-x-1/2 text-2xl font-bold">
+    Bienvenido {{ usuario.persona.nombres }} {{ usuario.persona.apellidop }} {{ usuario.persona.apellidom }}
+  </h2>
+
+  <!-- Menú a la derecha -->
+  <div class="ml-auto flex items-center space-x-3">
+    <!-- Notificaciones -->
+    <button class="relative px-3 py-2 border rounded-md hover:bg-gray-100">
+      🔔
+      <span class="absolute -top-1 -right-1 bg-red-600 text-white text-xs px-1 rounded-full">3</span>
+    </button>
+
+    <!-- Menú usuario -->
+    <div class="relative">
+      <button id="userMenuBtn2"
+        class="flex items-center bg-green-200 space-x-2 px-2 py-1 border border-blue-600 rounded-full hover:bg-blue-600 hover:text-white">
+        <!-- Imagen de perfil circular -->
+        <img src="{% static 'images/avatar.png' %}" alt="Perfil de {{ usuario }}"
+          class="w-8 h-8 rounded-full object-cover">
+        <span class="font-medium">{{ usuario }}</span>
+      </button>
+      <ul id="userMenu2"
+        class="hidden absolute right-0 mt-2 w-48 bg-white shadow rounded-md border transition-all duration-200">
+        <li>
+          <a href="{% url 'usuarios:perfil_usuario' %}" class="block px-3 py-2 hover:bg-gray-100">👤 Mis datos</a>
+
+        </li>
+        <li>
+          <a href="{% url 'login:logout' %}" class="block px-3 py-2 hover:bg-gray-100">🚪 Cerrar sesión</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>

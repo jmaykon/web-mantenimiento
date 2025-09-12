@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Dashboard Usuario{% endblock %}
+{% block content %}
+<main class="flex-grow">
+  <div class="flex">
+    <div id="dashboard-content" class="flex-1 p-6">
+      <div class="overflow-x-auto">
+        <h1 class="text-2xl font-bold mb-4">Notificación de Mantenimiento Programado y en Progreso</h1>
+        <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+          <thead class="bg-blue-600 text-white">
+            <tr>
+              <th class="py-3 px-6 text-left">N° DE SOLICITUD</th>
+              <th class="py-3 px-6 text-left">Fecha Programada</th>
+              <th class="py-3 px-6 text-left">Tipo de Mantenimiento</th>
+              <th class="py-3 px-6 text-left">Estado</th>
+              <th class="py-3 px-6 text-left">Técnico Asignado</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-100">
+              <td class="py-3 px-6">1</td>
+              <td class="py-3 px-6">2025-10-10</td>
+              <td class="py-3 px-6">Preventivo</td>
+              <td class="py-3 px-6">
+                <span class="px-3 py-1 rounded-full bg-green-500 text-white font-semibold">COMPLETADO</span>
+              </td>
+              <td class="py-3 px-6">Juan Perez</td>
+            </tr>
+            <tr class="hover:bg-gray-100">
+              <td class="py-3 px-6">2</td>
+              <td class="py-3 px-6">2025-11-15</td>
+              <td class="py-3 px-6">Correctivo</td>
+              <td class="py-3 px-6">
+                <span class="px-3 py-1 rounded-full bg-yellow-500 text-white font-semibold">EN PROGRESO</span>
+              </td>
+              <td class="py-3 px-6">Maria Lopez</td>
+            </tr>
+            <tr class="hover:bg-gray-100">
+              <td class="py-3 px-6">3</td>
+              <td class="py-3 px-6">2025-12-20</td>
+              <td class="py-3 px-6">Preventivo</td>
+              <td class="py-3 px-6">
+                <span class="px-3 py-1 rounded-full bg-yellow-500 text-white font-semibold">EN PROGRESO</span>
+              </td>
+              <td class="py-3 px-6">Carlos Sanchez</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

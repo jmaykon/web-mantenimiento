@@ -1,0 +1,31 @@
+<div id="modalPassword" 
+     class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+  <div class="bg-white p-6 rounded-xl shadow-lg w-96">
+    <h3 class="text-lg font-bold mb-4">🔑 Cambiar Contraseña</h3>
+    
+    <form method="POST" action="{% url 'usuario:cambiar_password' %}">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="block text-sm font-medium">Nueva Contraseña</label>
+        <input type="password" name="new_password1" required 
+               class="w-full border rounded-md px-3 py-2">
+      </div>
+      <div class="mb-3">
+        <label class="block text-sm font-medium">Confirmar Nueva Contraseña</label>
+        <input type="password" name="new_password2" required 
+               class="w-full border rounded-md px-3 py-2">
+      </div>
+
+      <div class="flex justify-end space-x-3">
+        <button type="button" id="closeModal" 
+                class="px-4 py-2 bg-gray-300 rounded-md hover:bg-gray-400">
+          Cancelar
+        </button>
+        <button type="submit" 
+                class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+          Guardar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
