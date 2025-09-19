@@ -1,20 +1,19 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const toggleBtn = document.getElementById('sidebar-toggle');
-    const sidebar = document.getElementById('sidebar');
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleBtn = document.getElementById("menu-toggle");
+    const sidebar = document.getElementById("sidebar");
 
-    if(toggleBtn && sidebar){
-        toggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('-translate-x-full');
+    if (toggleBtn && sidebar) {
+        toggleBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("-translate-x-full");
         });
     }
 
-    // Toggle submenus
-    document.querySelectorAll('.agenda-toggle').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const submenu = btn.nextElementSibling;
-            submenu.classList.toggle('hidden');
-            const icon = btn.querySelector('svg');
-            icon.classList.toggle('rotate-180');
+    // Extra: submenús de agenda
+    document.querySelectorAll(".agenda-toggle").forEach(button => {
+        button.addEventListener("click", () => {
+            const submenu = button.nextElementSibling;
+            submenu.classList.toggle("hidden");
+            button.querySelector("svg").classList.toggle("rotate-180");
         });
     });
 });

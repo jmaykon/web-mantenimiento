@@ -1,80 +1,31 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Productos Contabilizados</title>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Busqueda con Tailwind</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900 p-6">
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
 
-<div class="space-y-6">
-    <!-- Header -->
-    <div class="bg-gray-800 rounded-xl p-6 shadow-2xl border border-gray-700">
-        <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="p-3 bg-blue-600 rounded-lg">
-                    <i class="fas fa-boxes text-white text-xl"></i>
-                </div>
-                <div>
-                    <h1 class="text-2xl font-bold text-white">Gestión de Productos Contabilizados</h1>
-                    <p class="text-gray-400 text-sm">Un producto contable puede tener múltiples códigos SAP asociados</p>
-                </div>
-            </div>
-        </div>
+<div class="relative w-72 group">
+    <!-- Input -->
+    <input type="text" 
+           placeholder="Buscar..." 
+           class="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-lg 
+                  focus:outline-none focus:ring-2 focus:ring-blue-500
+                  shadow-sm" />
 
-        <!-- Buscador Automático Ajustable -->
-        <div class="mt-6 flex flex-wrap gap-4">
-            <input type="text" id="busqCodProdCont" placeholder="Código Producto"
-                   class="p-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none w-auto min-w-[120px]" />
-            <input type="text" id="busqCodProdSAP" placeholder="Código SAP"
-                   class="p-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none w-auto min-w-[120px]" />
-            <input type="text" id="busqEmpProdCont" placeholder="Empresa"
-                   class="p-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none w-auto min-w-[120px]" />
-        </div>
-    </div>
-
-    <!-- Contenedor productos -->
-    <div id="productosContainer" class="space-y-4">
-        <div class="producto bg-gray-700 p-4 rounded-lg border border-gray-600" data-cod="10168" data-sap="SAP001" data-emp="Empresa A">
-            <p class="text-white font-medium">10168 - Producto Contable A</p>
-            <p class="text-gray-400">SAP: SAP001 | Empresa: Empresa A</p>
-        </div>
-        <div class="producto bg-gray-700 p-4 rounded-lg border border-gray-600" data-cod="10169" data-sap="SAP002" data-emp="Empresa B">
-            <p class="text-white font-medium">10169 - Producto Contable B</p>
-            <p class="text-gray-400">SAP: SAP002 | Empresa: Empresa B</p>
-        </div>
-        <div class="producto bg-gray-700 p-4 rounded-lg border border-gray-600" data-cod="10170" data-sap="SAP003" data-emp="Empresa A">
-            <p class="text-white font-medium">10170 - Producto Contable C</p>
-            <p class="text-gray-400">SAP: SAP003 | Empresa: Empresa A</p>
-        </div>
-    </div>
+    <!-- Ícono -->
+    <svg xmlns="http://www.w3.org/2000/svg"
+         class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400
+                transition-transform duration-300 ease-in-out
+                group-hover:scale-110 group-hover:text-blue-500 animate-pulse"
+         fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z" />
+    </svg>
 </div>
-
-<script>
-    const busqCod = document.getElementById('busqCodProdCont');
-    const busqSAP = document.getElementById('busqCodProdSAP');
-    const busqEmp = document.getElementById('busqEmpProdCont');
-    const contenedor = document.getElementById('productosContainer');
-
-    function filtrarProductos() {
-        const valCod = busqCod.value.toLowerCase();
-        const valSAP = busqSAP.value.toLowerCase();
-        const valEmp = busqEmp.value.toLowerCase();
-
-        contenedor.querySelectorAll('.producto').forEach(prod => {
-            const cod = prod.dataset.cod.toLowerCase();
-            const sap = prod.dataset.sap.toLowerCase();
-            const emp = prod.dataset.emp.toLowerCase();
-            prod.style.display = (cod.includes(valCod) && sap.includes(valSAP) && emp.includes(valEmp)) ? '' : 'none';
-        });
-    }
-
-    [busqCod, busqSAP, busqEmp].forEach(input => {
-        input.addEventListener('input', filtrarProductos);
-    });
-</script>
 
 </body>
 </html>
